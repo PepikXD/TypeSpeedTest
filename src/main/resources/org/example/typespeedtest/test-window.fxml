@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.typespeedtest.Controllers.TestWindowController">
+   <children>
+      <Label fx:id="textSampleLabel" alignment="CENTER" layoutX="232.0" layoutY="309.0" prefHeight="103.0" prefWidth="1177.0" text="Label" textAlignment="JUSTIFY">
+         <font>
+            <Font size="70.0" />
+         </font></Label>
+      <Circle fx:id="timeCircle" fill="DODGERBLUE" layoutX="841.0" layoutY="123.0" radius="73.0" stroke="BLACK" strokeType="INSIDE" />
+      <Label fx:id="timeLabel" layoutX="803.0" layoutY="86.0" prefHeight="82.0" prefWidth="91.0" text="Label" />
+      <Label fx:id="textSampleLabelComeUp" alignment="CENTER" layoutX="320.0" layoutY="458.0" opacity="0.5" prefHeight="58.0" prefWidth="1017.0" text="Label" textAlignment="CENTER">
+         <font>
+            <Font size="40.0" />
+         </font>
+      </Label>
+      <TextField fx:id="userInputTextField" layoutX="232.0" layoutY="570.0" onKeyTyped="#textEnterHandle" prefHeight="77.0" prefWidth="1175.0" promptText="Enter text">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </TextField>
+   </children>
+</AnchorPane>
