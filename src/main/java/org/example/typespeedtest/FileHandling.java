@@ -11,7 +11,7 @@ public abstract class FileHandling {
     * @param username entered username
     */
    public static void createFolder(String username){
-      Path path = Path.of(STR."src/main/data/\{username}");
+      Path path = Path.of("src/main/data/" + username);
       if (!Files.exists(path)) {
          try {
             Files.createDirectory(path);
@@ -32,6 +32,6 @@ public abstract class FileHandling {
    
    private static File getRandomText(File directory){
       Random random = new Random();
-      return directory.listFiles()[random.nextInt(0,directory.listFiles().length)];
+      return directory.listFiles()[random.nextInt(directory.listFiles().length)];
    }
 }

@@ -1,7 +1,6 @@
 package org.example.typespeedtest;
 
 import javafx.application.*;
-import javafx.event.*;
 import javafx.fxml.*;
 import javafx.scene.*;
 import javafx.stage.*;
@@ -38,12 +37,7 @@ public class Main extends Application {
       stage.setResizable(false);
       stage.centerOnScreen();
       stage.show();
-      stage.setOnCloseRequest(new EventHandler <WindowEvent>() {
-         @Override
-         public void handle(WindowEvent windowEvent) {
-            System.exit(0);
-         }
-      });
+      stage.setOnCloseRequest(windowEvent -> System.exit(0));
    }
    public static void main(String[] args) {
       launch(args);
