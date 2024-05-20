@@ -3,7 +3,6 @@ package org.example.typespeedtest.Controllers;
 import javafx.application.*;
 import javafx.fxml.*;
 import javafx.scene.control.*;
-import javafx.scene.input.*;
 import javafx.scene.shape.*;
 import org.example.typespeedtest.*;
 
@@ -43,29 +42,18 @@ public class TestWindowController implements Initializable{
       textSampleLabelComeUp.setText(sampleText.get(1));
    }
    
-   private final List<KeyCode> IgnoredKeyCodes = Arrays.asList(
-           KeyCode.UP, KeyCode.DOWN, KeyCode.LEFT, KeyCode.RIGHT,
-           KeyCode.ENTER, KeyCode.CONTROL, KeyCode.SHIFT,
-           KeyCode.BACK_SPACE, KeyCode.TAB, KeyCode.WINDOWS,
-           KeyCode.ESCAPE, KeyCode.ALT, KeyCode.CAPS,
-           KeyCode.END, KeyCode.HOME, KeyCode.PAGE_UP, KeyCode.PAGE_DOWN,KeyCode.DELETE, KeyCode.INSERT,
-           KeyCode.INSERT, KeyCode.SCROLL_LOCK,KeyCode.PAUSE, KeyCode.PRINTSCREEN, KeyCode.NUM_LOCK,
-           KeyCode.F1, KeyCode.F2, KeyCode.F3, KeyCode.F4, KeyCode.F5, KeyCode.F6, KeyCode.F7, KeyCode.F8, KeyCode.F9, KeyCode.F10, KeyCode.F11, KeyCode.F12, KeyCode.F13, KeyCode.F14, KeyCode.F15, KeyCode.F16
-           );
-   
    /**
     * Starts countdown
     */
    private void startCountDown(){
-      countDownHandle(startTime);
+      countDownHandle();
    }
    
    /**
     * Starts countdown if it is the first char typed
     * Checks if correct and switches labels if is end of word
-    * @param keyEvent key event
     */
-   public void textEnterHandle(KeyEvent keyEvent){
+   public void textEnterHandle(){
       if(isFirstTyped){
          startCountDown();
          isFirstTyped = false;
@@ -81,17 +69,14 @@ public class TestWindowController implements Initializable{
     */
    private void updateTimer(){
       currentTime--;
-      Platform.runLater(() -> {
-         timeLabel.setText(String.valueOf(currentTime));
-      });
+      Platform.runLater(() -> timeLabel.setText(String.valueOf(currentTime)));
    }
    
    /**
     * counts down entered time
     * Note: will go into negative
-    * @param startTime time ine seconds that will be counted down
     */
-   private void countDownHandle(int startTime){
+   private void countDownHandle(){
       Timer timer = new Timer();
       timer.scheduleAtFixedRate(new TimerTask() {
          @Override
@@ -126,9 +111,7 @@ public class TestWindowController implements Initializable{
    }
    
    private void showEndScreen() {
-      Platform.runLater(() -> {
-         Main.changeScene("test-finished-window.fxml");
-      });
+      Platform.runLater(() -> Main.changeScene("test-finished-window.fxml"));
    }
    
    private void setUpCalculatedValues(){
