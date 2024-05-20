@@ -28,7 +28,7 @@ public class TestWindowController implements Initializable{
    private static int charsTyped = 0;
    private static int correctCharsTyped = 0;
    private boolean isFirstTyped = true;
-   private static final int startTime = 60;
+   private static final int startTime = 3;
    private int currentTime = startTime;
    
    
@@ -98,21 +98,27 @@ public class TestWindowController implements Initializable{
          public void run() {
             if(isTimerFinished()){
                timer.cancel();
-               endHandel();
+               try {
+                  endHandel();
+               } catch (IOException e) {
+                  e.printStackTrace();
+               }
             }
             updateTimer();
          }
       },0,1000);
    }
    
-   private void endHandel(){
+   private void endHandel() throws IOException {
       setUpCalculatedValues();
       showEndScreen();
-      saveData();
+      if (Game.getPlayer().isPlayerLoggedIn()){
+         saveData();
+      }
    }
    
-   private void saveData() {
-   
+   private void saveData() throws IOException {
+      FileHandling.writeData();
    }
    
    private boolean isTimerFinished(){
@@ -126,7 +132,8 @@ public class TestWindowController implements Initializable{
    }
    
    private void setUpCalculatedValues(){
-      Game.getPlayer().setUserResults(0,0,0);
+      Game.getPlayer().setUserResults();
+      
    }
    
    /**

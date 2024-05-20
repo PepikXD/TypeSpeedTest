@@ -1,14 +1,12 @@
 package org.example.typespeedtest;
 
-import org.example.typespeedtest.Controllers.*;
-
 public record userResults(double wpm, int prctAccuracy, double netSpeed) {
    
    
    public userResults (double wpm, int prctAccuracy, double netSpeed){
-      this.wpm = calculateWPM(TestWindowController.getCharsTyped());
-      this.prctAccuracy = calculatePrctAccuracy(TestWindowController.getCharsTyped(), TestWindowController.getCorrectCharsTyped());;
-      this.netSpeed = calculateNetSpeed();
+      this.wpm = wpm;//calculateWPM(TestWindowController.getCharsTyped());
+      this.prctAccuracy = prctAccuracy;//calculatePrctAccuracy(TestWindowController.getCharsTyped(), TestWindowController.getCorrectCharsTyped());;
+      this.netSpeed = netSpeed;//calculateNetSpeed();
    }
    
    
@@ -27,7 +25,7 @@ public record userResults(double wpm, int prctAccuracy, double netSpeed) {
    public double netSpeed() {
       return netSpeed;
    }
-   
+   /*
    private int calculatePrctAccuracy(int charsTyped, int correctChars) {
       return (correctChars / charsTyped) * 100;
    }
@@ -37,5 +35,12 @@ public record userResults(double wpm, int prctAccuracy, double netSpeed) {
    }
    private double calculateWPM(int charsTyped) {
       return (charsTyped /5.0) / ((double) TestWindowController.getStartTime() /60);
+   }
+   
+    */
+   @Override
+   public String toString(){
+      String s = wpm + "," + prctAccuracy + "," + netSpeed;
+      return s;
    }
 }

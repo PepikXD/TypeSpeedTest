@@ -1,11 +1,14 @@
 package org.example.typespeedtest.Controllers;
 
+import javafx.application.*;
+import javafx.event.*;
 import javafx.fxml.*;
 import javafx.scene.control.*;
 import javafx.scene.shape.*;
 import javafx.scene.text.*;
 import org.example.typespeedtest.*;
 
+import java.io.*;
 import java.net.*;
 import java.util.*;
 
@@ -36,6 +39,9 @@ public class TestFinishedWindowController implements Initializable {
    private Button endButton;
    
    @FXML
+   private Button statsButton;
+   
+   @FXML
    private Circle WPMCircle;
    
    @FXML
@@ -54,12 +60,24 @@ public class TestFinishedWindowController implements Initializable {
    @Override
    public void initialize(URL url, ResourceBundle resourceBundle) {
       setUpLabels();
-      System.out.println(Game.getPlayer().getUserResults());
+      //System.out.println(Game.getPlayer().getUserResults());
    }
    
    private void setUpLabels() {
       userWPMLabel.setText(String.valueOf(Game.getPlayer().getUserResults().wpm()));
       userAccuracyLabel.setText(String.valueOf(Game.getPlayer().getUserResults().prctAccuracy()));
       userNetSpeedLabel.setText(String.valueOf(Game.getPlayer().getUserResults().netSpeed()));
+   }
+   
+   public void onPlayAgainButtonClicked(ActionEvent actionEvent) throws IOException {
+      Main.changeScene("test-window.fxml");
+   }
+   
+   public void onEndButtonClicked(ActionEvent actionEvent) throws IOException {
+      Platform.exit();
+   }
+   
+   public void onStatsButtonClicked(ActionEvent actionEvent) throws IOException {
+      Main.changeScene("stats-window.fxml");
    }
 }

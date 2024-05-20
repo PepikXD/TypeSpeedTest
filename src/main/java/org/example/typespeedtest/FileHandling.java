@@ -1,7 +1,10 @@
 package org.example.typespeedtest;
 
+import org.example.typespeedtest.Controllers.*;
+
 import java.io.*;
 import java.nio.file.*;
+import java.text.*;
 import java.util.*;
 
 public abstract class FileHandling {
@@ -35,7 +38,27 @@ public abstract class FileHandling {
       return directory.listFiles()[random.nextInt(directory.listFiles().length)];
    }
    
-   public static void writeData(){
+   public static void writeData() throws IOException {
+      String write = createWriteString();
+      
+      String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+      BufferedWriter bw = new BufferedWriter(new FileWriter("src/main/data/" + Game.getPlayer().getUsername() + "/" + timeStamp));
+      bw.write(write);
+      
+      bw.close();
+   }
    
+   private static String createWriteString(){
+      String write = "";
+      write += DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.MEDIUM).format(new Date());
+      write += ",";
+      write += Game.getPlayer();
+      write += ",";
+      write += TestWindowController.getCharsTyped();
+      write += ",";
+      write += TestWindowController.getCorrectCharsTyped();
+      
+      
+      return write;
    }
 }

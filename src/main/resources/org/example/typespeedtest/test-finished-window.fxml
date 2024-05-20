@@ -7,7 +7,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.typespeedtest.Controllers.TestFinishedWindowController">
    <children>
       <Circle fx:id="WPMCircle" fill="DODGERBLUE" layoutX="131.0" layoutY="151.0" radius="49.0" stroke="BLACK" strokeType="INSIDE" />
@@ -19,8 +18,8 @@
       <Label fx:id="WPMLabel" layoutX="97.0" layoutY="215.0" prefHeight="32.0" prefWidth="68.0" text="WPM" />
       <Label fx:id="accuracyLabel" layoutX="275.0" layoutY="215.0" prefHeight="32.0" prefWidth="68.0" text="Accuracy" />
       <Label fx:id="netSpeedLabel" layoutX="436.0" layoutY="215.0" prefHeight="32.0" prefWidth="68.0" text="Net Speed" />
-      <Button fx:id="playAgainButton" layoutX="165.0" layoutY="326.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="89.0" text="Play Again" />
-      <Button fx:id="endButton" layoutX="358.0" layoutY="326.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="89.0" text="End" />
+      <Button fx:id="playAgainButton" layoutX="97.0" layoutY="326.0" mnemonicParsing="false" onAction="#onPlayAgainButtonClicked" prefHeight="38.0" prefWidth="89.0" text="Play Again" />
+      <Button fx:id="endButton" layoutX="392.0" layoutY="326.0" mnemonicParsing="false" onAction="#onEndButtonClicked" prefHeight="38.0" prefWidth="89.0" text="End" />
       <Text fx:id="timesOperatorText" layoutX="200.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="X" wrappingWidth="47.078125">
          <font>
             <Font size="67.0" />
@@ -31,5 +30,6 @@
             <Font size="67.0" />
          </font>
       </Text>
+      <Button fx:id="statsButton" layoutX="247.0" layoutY="326.0" mnemonicParsing="false" onAction="#onStatsButtonClicked" prefHeight="38.0" prefWidth="89.0" text="Stats" />
    </children>
 </AnchorPane>
