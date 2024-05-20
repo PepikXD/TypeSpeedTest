@@ -4,8 +4,12 @@ import javafx.fxml.*;
 import javafx.scene.control.*;
 import javafx.scene.shape.*;
 import javafx.scene.text.*;
+import org.example.typespeedtest.*;
 
-public class TestFinishedWindowController {
+import java.net.*;
+import java.util.*;
+
+public class TestFinishedWindowController implements Initializable {
    
    @FXML
    private Label userWPMLabel;
@@ -47,4 +51,15 @@ public class TestFinishedWindowController {
    private Text equalesOperatorText;
    
    
+   @Override
+   public void initialize(URL url, ResourceBundle resourceBundle) {
+      setUpLabels();
+      System.out.println(Game.getPlayer().getUserResults());
+   }
+   
+   private void setUpLabels() {
+      userWPMLabel.setText(String.valueOf(Game.getPlayer().getUserResults().wpm()));
+      userAccuracyLabel.setText(String.valueOf(Game.getPlayer().getUserResults().prctAccuracy()));
+      userNetSpeedLabel.setText(String.valueOf(Game.getPlayer().getUserResults().netSpeed()));
+   }
 }

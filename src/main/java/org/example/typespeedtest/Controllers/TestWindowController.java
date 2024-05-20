@@ -25,10 +25,10 @@ public class TestWindowController implements Initializable{
    
    private List<String> sampleText;
    private int currentLine = 0;
-   private int charsTyped = 0;
-   private int correctCharsTyped = 0;
+   private static int charsTyped = 0;
+   private static int correctCharsTyped = 0;
    private boolean isFirstTyped = true;
-   private final int startTime = 60;
+   private static final int startTime = 60;
    private int currentTime = startTime;
    
    
@@ -98,11 +98,21 @@ public class TestWindowController implements Initializable{
          public void run() {
             if(isTimerFinished()){
                timer.cancel();
-               showEndScreen();
+               endHandel();
             }
             updateTimer();
          }
       },0,1000);
+   }
+   
+   private void endHandel(){
+      setUpCalculatedValues();
+      showEndScreen();
+      saveData();
+   }
+   
+   private void saveData() {
+   
    }
    
    private boolean isTimerFinished(){
@@ -113,7 +123,10 @@ public class TestWindowController implements Initializable{
       Platform.runLater(() -> {
          Main.changeScene("test-finished-window.fxml");
       });
-      
+   }
+   
+   private void setUpCalculatedValues(){
+      Game.getPlayer().setUserResults(0,0,0);
    }
    
    /**
@@ -157,4 +170,18 @@ public class TestWindowController implements Initializable{
    private boolean isEndOfWord(){
       return userInputTextField.getText().length() == textSampleLabel.getText().length();
    }
+   
+   public static int getCharsTyped() {
+      return charsTyped;
+   }
+   
+   public static int getCorrectCharsTyped() {
+      return correctCharsTyped;
+   }
+   
+   public static int getStartTime() {
+      return startTime;
+   }
 }
+
+

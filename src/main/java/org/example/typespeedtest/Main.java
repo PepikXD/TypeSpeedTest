@@ -37,7 +37,7 @@ public class Main extends Application {
       stage.setResizable(false);
       stage.centerOnScreen();
       stage.show();
-      stage.setOnCloseRequest(windowEvent -> System.exit(0));
+      stage.setOnCloseRequest(windowEvent -> Platform.exit());
    }
    public static void main(String[] args) {
       launch(args);

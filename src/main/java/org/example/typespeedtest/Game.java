@@ -7,4 +7,7 @@ public class Game {
    public static void setPlayer(Player player) {
       Game.player = player;
    }
+   public static Player getPlayer() {
+      return player;
+   }
 }

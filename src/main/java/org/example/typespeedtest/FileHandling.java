@@ -34,4 +34,8 @@ public abstract class FileHandling {
       Random random = new Random();
       return directory.listFiles()[random.nextInt(directory.listFiles().length)];
    }
+   
+   public static void writeData(){
+   
+   }
 }
