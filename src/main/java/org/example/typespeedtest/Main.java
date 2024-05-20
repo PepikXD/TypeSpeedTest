@@ -18,7 +18,7 @@ public class Main extends Application {
     */
    public static void changeScene(String fxml){
       try {
-         Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(fxml)));
+         Parent root = FXMLLoader.load(Main.class.getResource(fxml));
          stg.setScene(new Scene(root));
          stg.centerOnScreen();
       } catch (IOException e) {

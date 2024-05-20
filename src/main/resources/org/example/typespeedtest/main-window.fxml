@@ -23,7 +23,7 @@
             <Font name="Times New Roman Bold" size="64.0" />
          </font>
       </Button>
-      <Button fx:id="statsButton" layoutX="697.0" layoutY="774.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="206.0" text="Stats" />
+      <Button fx:id="statsButton" layoutX="697.0" layoutY="774.0" mnemonicParsing="false" onAction="#onStatsButtonClicked" prefHeight="68.0" prefWidth="206.0" text="Stats" />
       <Circle fx:id="totalWordCountCircle" fill="WHITE" layoutX="533.0" layoutY="581.0" radius="71.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="10.0" />
       <Circle fx:id="averageWPMCircle" fill="WHITE" layoutX="802.0" layoutY="585.0" radius="71.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="10.0" />
       <Circle fx:id="averageAccuracyCircle" fill="WHITE" layoutX="1049.0" layoutY="578.0" radius="71.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="10.0" />

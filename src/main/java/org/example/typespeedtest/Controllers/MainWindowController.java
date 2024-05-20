@@ -1,6 +1,5 @@
 package org.example.typespeedtest.Controllers;
 
-import javafx.event.*;
 import javafx.fxml.*;
 import javafx.scene.control.*;
 import javafx.scene.shape.*;
@@ -47,8 +46,13 @@ public class MainWindowController {
    @FXML
    private Button statsButton;
    
-   public void onPlayButtonClicked(ActionEvent actionEvent) {
+   
+   public void onPlayButtonClicked() {
       Main.changeScene("test-window.fxml");
+   }
+   
+   public void onStatsButtonClicked() {
+      Main.changeScene("stats-window.fxml");
    }
    
    
