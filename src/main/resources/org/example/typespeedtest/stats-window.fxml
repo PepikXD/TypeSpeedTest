@@ -5,17 +5,18 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="870.0" prefWidth="938.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.typespeedtest.Controllers.StatsWindowController">
    <children>
-      <TableView fx:id="statsTableView" layoutX="17.0" layoutY="20.0" prefHeight="765.0" prefWidth="907.0">
+      <TableView fx:id="table" layoutX="16.0" layoutY="21.0" prefHeight="765.0" prefWidth="907.0">
         <columns>
-          <TableColumn fx:id="statsTableViewDateTimeColumn" prefWidth="400.0" text="Date + Time" />
-            <TableColumn fx:id="statsTableViewWPMColumn" prefWidth="150.0" text="WPM" />
-            <TableColumn fx:id="statsTableViewAccuracyColumn" prefWidth="150.0" text="Accuracy" />
-            <TableColumn fx:id="statsTableViewCharsTypedColumn" prefWidth="200.0" text="Character Typed" />
+          <TableColumn fx:id="dateTime" prefWidth="262.0" resizable="false" text="Date + Time" />
+            <TableColumn fx:id="wpm" prefWidth="96.0" resizable="false" text="WPM" />
+            <TableColumn fx:id="accuracy" minWidth="0.0" prefWidth="99.0" resizable="false" text="Accuracy" />
+            <TableColumn fx:id="netSpeed" minWidth="0.0" prefWidth="112.0" resizable="false" text="Net Speed" />
+            <TableColumn fx:id="charsTyped" prefWidth="166.0" resizable="false" text="Character Typed" />
+            <TableColumn fx:id="correctCharsTyped" prefWidth="169.0" resizable="false" text="Correct Character Typed" />
         </columns>
       </TableView>
-      <Button layoutX="808.0" layoutY="815.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="99.0" text="Back" />
+      <Button fx:id="backButton" layoutX="808.0" layoutY="815.0" mnemonicParsing="false" onAction="#onBackButtonPressed" prefHeight="41.0" prefWidth="99.0" text="Back" />
    </children>
 </AnchorPane>

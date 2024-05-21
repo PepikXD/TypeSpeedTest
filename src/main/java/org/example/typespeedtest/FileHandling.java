@@ -1,5 +1,6 @@
 package org.example.typespeedtest;
 
+import javafx.collections.*;
 import org.example.typespeedtest.Controllers.*;
 
 import java.io.*;
@@ -57,8 +58,25 @@ public abstract class FileHandling {
       write += TestWindowController.getCharsTyped();
       write += ",";
       write += TestWindowController.getCorrectCharsTyped();
-      
-      
       return write;
+   }
+   
+   public static ObservableList<Data> readData(){
+      ObservableList<Data> data = FXCollections.observableArrayList();
+      File directory = new File("src/main/data/" + Game.getPlayer().getUsername());
+      File[] files = directory.listFiles();
+      for (File file : files) {
+         try {
+            BufferedReader br = new BufferedReader(new FileReader(file.getPath()));
+            String[] read = br.readLine().split(",");
+            Data d = new Data(read[0],read[1],read[2],read[3],read[4],read[5]);
+            data.add(d);
+            br.close();
+         } catch (IOException e) {
+            throw new RuntimeException(e);
+         }
+         
+      }
+      return data;
    }
 }

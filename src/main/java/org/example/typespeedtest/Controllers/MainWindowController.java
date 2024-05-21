@@ -6,6 +6,8 @@ import javafx.scene.shape.*;
 import org.example.typespeedtest.*;
 
 public class MainWindowController {
+   @FXML
+   public Button playButton1;
    
    @FXML
    private Label welcomeLabel;
@@ -47,7 +49,7 @@ public class MainWindowController {
    private Button statsButton;
    
    
-   public void onPlayButtonClicked() {
+   public void onPlayButtonClicked1() {
       Main.changeScene("test-window.fxml");
    }
    
