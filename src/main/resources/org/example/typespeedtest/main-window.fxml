@@ -13,16 +13,11 @@
             <Font name="Times New Roman" size="96.0" />
          </font>
       </Label>
-      <Label fx:id="usernameLabel" layoutX="734.0" layoutY="213.0" text="username" textAlignment="CENTER">
+      <Label fx:id="usernameLabel" layoutX="741.0" layoutY="215.0" prefHeight="49.0" prefWidth="155.0" text="username" textAlignment="CENTER">
          <font>
             <Font size="33.0" />
          </font>
       </Label>
-      <Button id="playButton" fx:id="playButton1" layoutX="607.0" layoutY="324.0" mnemonicParsing="false" onAction="#onPlayButtonClicked1" prefHeight="102.0" prefWidth="346.0" text="PLAY!!" textAlignment="CENTER" textFill="WHITE">
-         <font>
-            <Font name="Times New Roman Bold" size="64.0" />
-         </font>
-      </Button>
       <Button fx:id="statsButton" layoutX="697.0" layoutY="774.0" mnemonicParsing="false" onAction="#onStatsButtonClicked" prefHeight="68.0" prefWidth="206.0" text="Stats" />
       <Circle fx:id="totalWordCountCircle" fill="WHITE" layoutX="533.0" layoutY="581.0" radius="71.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="10.0" />
       <Circle fx:id="averageWPMCircle" fill="WHITE" layoutX="802.0" layoutY="585.0" radius="71.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="10.0" />
@@ -33,5 +28,10 @@
       <Label fx:id="wordCountLabel" layoutX="504.0" layoutY="683.0" prefHeight="37.0" prefWidth="47.0" text="Label" />
       <Label fx:id="averageWPMLabel" layoutX="781.0" layoutY="683.0" prefHeight="37.0" prefWidth="47.0" text="Label" />
       <Label fx:id="averageAccuracyLabel" layoutX="1029.0" layoutY="684.0" prefHeight="37.0" prefWidth="47.0" text="Label" />
+      <Button fx:id="playButton" layoutX="627.0" layoutY="304.0" mnemonicParsing="false" onAction="#onPlayButtonClicked" onMouseClicked="#onPlayButtonClicked" prefHeight="134.0" prefWidth="372.0" text="PLAY">
+         <font>
+            <Font size="74.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

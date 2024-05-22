@@ -78,6 +78,11 @@ public class TestFinishedWindowController implements Initializable {
    }
    
    public void onStatsButtonClicked(ActionEvent actionEvent) throws IOException {
-      Main.changeScene("stats-window.fxml");
+      if(Game.getPlayer().isPlayerLoggedIn()){
+         Main.changeScene("stats-window.fxml");
+      }else {
+         MyAlert a = new MyAlert(Alert.AlertType.WARNING);
+         a.showAlert("Stats are not saved when you are playing as guest");
+      }
    }
 }

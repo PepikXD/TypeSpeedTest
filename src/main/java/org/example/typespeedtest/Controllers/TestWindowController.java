@@ -36,7 +36,8 @@ public class TestWindowController implements Initializable{
       try {
          sampleText = FileHandling.loadText();
       } catch (IOException e) {
-         e.printStackTrace();
+         MyAlert a = new MyAlert(Alert.AlertType.ERROR);
+         a.showAlert(e.getMessage());
       }
       textSampleLabel.setText(sampleText.get(0));
       textSampleLabelComeUp.setText(sampleText.get(1));

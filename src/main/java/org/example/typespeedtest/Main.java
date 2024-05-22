@@ -3,6 +3,7 @@ package org.example.typespeedtest;
 import javafx.application.*;
 import javafx.fxml.*;
 import javafx.scene.*;
+import javafx.scene.control.*;
 import javafx.stage.*;
 
 import java.io.*;
@@ -22,7 +23,8 @@ public class Main extends Application {
          stg.setScene(new Scene(root));
          stg.centerOnScreen();
       } catch (IOException e) {
-         e.printStackTrace();
+         MyAlert a = new MyAlert(Alert.AlertType.ERROR);
+         a.showAlert(e.getLocalizedMessage());
       }
       
    }

@@ -6,8 +6,6 @@ import javafx.scene.shape.*;
 import org.example.typespeedtest.*;
 
 public class MainWindowController {
-   @FXML
-   public Button playButton1;
    
    @FXML
    private Label welcomeLabel;
@@ -43,18 +41,26 @@ public class MainWindowController {
    private Circle averageAccuracyCircle;
    
    @FXML
-   private Button playButton;
+   private Button playButton1;
    
    @FXML
    private Button statsButton;
    
    
-   public void onPlayButtonClicked1() {
+   public void onPlayButtonClicked() {
       Main.changeScene("test-window.fxml");
    }
    
    public void onStatsButtonClicked() {
-      Main.changeScene("stats-window.fxml");
+      if(Game.getPlayer().isPlayerLoggedIn()){
+         Main.changeScene("stats-window.fxml");
+      }else {
+         MyAlert a = new MyAlert(Alert.AlertType.WARNING);
+         a.showAlert("Stats are not saved when you are playing as guest");
+      }
+      
+      
+      
    }
    
    
