@@ -27,7 +27,7 @@ public abstract class FileHandling {
    
    public static List<String> loadText() throws IOException {
       List<String> text = new ArrayList <>();
-      BufferedReader br = new BufferedReader(new FileReader(getRandomText(new File("src/main/Texts"))));
+      BufferedReader br = new BufferedReader(new FileReader(getRandomText(new File("src/main/resources/Texts"))));
       while (br.ready()){
          text.add(br.readLine());
       }
@@ -36,7 +36,8 @@ public abstract class FileHandling {
    
    private static File getRandomText(File directory){
       Random random = new Random();
-      return directory.listFiles()[random.nextInt(directory.listFiles().length)];
+      File[] files = directory.listFiles();
+      return files[random.nextInt(files.length)];
    }
    
    public static void writeData() throws IOException {

@@ -123,7 +123,7 @@ public class TestWindowController implements Initializable{
    /**
     * Switches labels to next words from sampleText
     * If there is no more words, list will cycle again from start
-    * When switching to new word, text from user will reset to ""
+    * When switching to new word, 1 from user will reset to ""
     */
    private void switchLabels() {
       if(!textSampleLabel.getText().equals(sampleText.get(sampleText.size()-1))){
@@ -140,8 +140,8 @@ public class TestWindowController implements Initializable{
    }
    
    /**
-    * compares char by char sample text to user input and checks if same
-    * @param enteredText text from textField
+    * compares char by char sample 1 to user input and checks if same
+    * @param enteredText 1 from textField
     */
    private void checkCorrect(String enteredText){
       char[] enteredChars = enteredText.toCharArray();
@@ -155,7 +155,7 @@ public class TestWindowController implements Initializable{
    }
    
    /**
-    * checks if user typed same amount of word as displayed text
+    * checks if user typed same amount of word as displayed 1
     * @return is it end of word
     */
    private boolean isEndOfWord(){
