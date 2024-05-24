@@ -6,6 +6,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.*;
 import org.example.typespeedtest.*;
 
+import java.io.IOException;
 import java.net.*;
 import java.util.*;
 
@@ -31,15 +32,20 @@ public class StatsWindowController implements Initializable {
    public void onBackButtonPressed() {
       Main.changeScene("main-window.fxml");
    }
-   ObservableList<Data> data(){
+   ObservableList<Data> data() throws IOException {
       return FileHandling.readData();
    }
    
    @Override
    public void initialize(URL url, ResourceBundle resourceBundle) {
       //setCellValueFactories();
-      table.setItems(data());
-      
+      try {
+         table.setItems(data());
+      } catch (IOException e) {
+         MyAlert a = new MyAlert(Alert.AlertType.ERROR);
+         a.showAlert(e.getMessage());
+      }
+
       dateTime.setCellValueFactory(new PropertyValueFactory<>("dateTime"));
       wpm.setCellValueFactory(new PropertyValueFactory<>("wpm"));
       accuracy.setCellValueFactory(new PropertyValueFactory <>("accuracy"));

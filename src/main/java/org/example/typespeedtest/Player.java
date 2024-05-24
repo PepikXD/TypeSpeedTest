@@ -41,7 +41,8 @@ public class Player {
    }
    
    private int calculatePrctAccuracy(int charsTyped, int correctChars) {
-      return (correctChars / charsTyped) * 100;
+      int temp = correctChars * 100 / charsTyped;
+      return temp;
    }
    
    private double calculateNetSpeed() {

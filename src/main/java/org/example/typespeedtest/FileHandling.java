@@ -27,7 +27,7 @@ public abstract class FileHandling {
    
    public static List<String> loadText() throws IOException {
       List<String> text = new ArrayList <>();
-      BufferedReader br = new BufferedReader(new FileReader(getRandomText(new File("src/main/resources/Texts"))));
+      BufferedReader br = new BufferedReader(new FileReader(getRandomText(new File("src/main/resources/Texts")))); //new FileReader(getRandomText(new File("src/main/resources/Texts"))) new InputStreamReader(Main.class.getResourceAsStream("Texts/1")
       while (br.ready()){
          text.add(br.readLine());
       }
@@ -53,31 +53,76 @@ public abstract class FileHandling {
    private static String createWriteString(){
       String write = "";
       write += DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.MEDIUM).format(new Date());
-      write += ",";
+      write += ";";
       write += Game.getPlayer();
-      write += ",";
+      write += ";";
       write += TestWindowController.getCharsTyped();
-      write += ",";
+      write += ";";
       write += TestWindowController.getCorrectCharsTyped();
       return write;
    }
-   
-   public static ObservableList<Data> readData(){
-      ObservableList<Data> data = FXCollections.observableArrayList();
-      File directory = new File("src/main/data/" + Game.getPlayer().getUsername());
+
+   private static File[] getAllFilesFromDirectory(String dir){
+      File directory = new File(dir);
       File[] files = directory.listFiles();
+
+      return files;
+   }
+   
+   public static ObservableList<Data> readData() throws IOException {
+      ObservableList<Data> data = FXCollections.observableArrayList();
+      File[] files = getAllFilesFromDirectory("src/main/data/" + Game.getPlayer().getUsername());
       for (File file : files) {
-         try {
-            BufferedReader br = new BufferedReader(new FileReader(file.getPath()));
-            String[] read = br.readLine().split(",");
-            Data d = new Data(read[0],read[1],read[2],read[3],read[4],read[5]);
-            data.add(d);
-            br.close();
-         } catch (IOException e) {
-            throw new RuntimeException(e);
-         }
+         BufferedReader br = new BufferedReader(new FileReader(file.getPath()));
+         String[] read = br.readLine().split(";");
+         Data d = new Data(read[0] ,read[1] ,read[2] + " %",read[3],read[4],read[5]);
+         data.add(d);
+         br.close();
          
       }
       return data;
    }
+
+   public static List<Integer> getOnlyAccuracy() throws IOException {
+      List<Integer> l = new ArrayList<>();
+      File[] files = getAllFilesFromDirectory("src/main/data/" + Game.getPlayer().getUsername());
+
+      for (File f:files){
+         BufferedReader br = new BufferedReader(new FileReader(f.getPath()));
+         String[] read = br.readLine().split(";");
+         l.add(Integer.valueOf(read[2]));
+      }
+
+      return l;
+   }
+
+   public static List<Double> getOnlyWPM() throws IOException {
+      List<Double> l = new ArrayList<>();
+      File[] files = getAllFilesFromDirectory("src/main/data/" + Game.getPlayer().getUsername());
+
+      for (File f:files){
+         BufferedReader br = new BufferedReader(new FileReader(f.getPath()));
+         String[] read = br.readLine().split(";");
+         l.add(Double.valueOf(read[1]));
+      }
+
+      return l;
+   }
+
+   public static List<Integer> getOnlyCharsTyped() throws IOException {
+      List<Integer> l = new ArrayList<>();
+      File[] files = getAllFilesFromDirectory("src/main/data/" + Game.getPlayer().getUsername());
+
+      for (File f:files){
+         BufferedReader br = new BufferedReader(new FileReader(f.getPath()));
+         String[] read = br.readLine().split(";");
+         l.add(Integer.valueOf(read[4]));
+      }
+
+      return l;
+   }
+
+
+
+
 }

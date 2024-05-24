@@ -25,10 +25,10 @@
       <Label fx:id="userWordCountLabel" layoutX="504.0" layoutY="562.0" prefHeight="37.0" prefWidth="47.0" text="Label" />
       <Label fx:id="userAverageWPMLabel" layoutX="776.0" layoutY="566.0" prefHeight="37.0" prefWidth="47.0" text="Label" />
       <Label fx:id="userAverageAccuracyLabel" layoutX="1024.0" layoutY="563.0" prefHeight="37.0" prefWidth="47.0" text="Label" />
-      <Label fx:id="wordCountLabel" layoutX="504.0" layoutY="683.0" prefHeight="37.0" prefWidth="47.0" text="Label" />
-      <Label fx:id="averageWPMLabel" layoutX="781.0" layoutY="683.0" prefHeight="37.0" prefWidth="47.0" text="Label" />
-      <Label fx:id="averageAccuracyLabel" layoutX="1029.0" layoutY="684.0" prefHeight="37.0" prefWidth="47.0" text="Label" />
-      <Button fx:id="playButton" layoutX="627.0" layoutY="304.0" mnemonicParsing="false" onAction="#onPlayButtonClicked" onMouseClicked="#onPlayButtonClicked" prefHeight="134.0" prefWidth="372.0" text="PLAY">
+      <Label fx:id="wordCountLabel" layoutX="464.0" layoutY="673.0" prefHeight="37.0" prefWidth="127.0" text="Total Characters Typed" />
+      <Label fx:id="averageWPMLabel" layoutX="764.0" layoutY="673.0" prefHeight="37.0" prefWidth="71.0" text="Avg. WPM" />
+      <Label fx:id="averageAccuracyLabel" layoutX="1008.0" layoutY="673.0" prefHeight="37.0" prefWidth="83.0" text="Avg. Accuracy" />
+      <Button fx:id="playButton" layoutX="627.0" layoutY="304.0" mnemonicParsing="false" onAction="#onPlayButtonClicked" prefHeight="134.0" prefWidth="372.0" text="PLAY">
          <font>
             <Font size="74.0" />
          </font>

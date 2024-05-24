@@ -24,7 +24,7 @@ public class Main extends Application {
          stg.centerOnScreen();
       } catch (IOException e) {
          MyAlert a = new MyAlert(Alert.AlertType.ERROR);
-         a.showAlert(e.getMessage());
+         a.showAlert(e.getCause().getMessage());
       }
       
    }

@@ -18,6 +18,6 @@ public record userResults(double wpm, int prctAccuracy, double netSpeed) {
    }
    @Override
    public String toString(){
-      return wpm + "," + prctAccuracy + "," + netSpeed;
+      return wpm + ";" + prctAccuracy  + ";" + netSpeed;
    }
 }
